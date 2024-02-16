@@ -1,5 +1,6 @@
 import inquirer from "inquirer";
-import fs from 'fs'
+import fs from 'fs';
+import generateMarkdown from './utils/generateMarkdown.js';
 
 const prompt = inquirer.createPromptModule();
 
@@ -66,3 +67,8 @@ const questions = [
   },
 ];
 
+prompt(questions)
+    .then((answers) => {
+        const test = generateMarkdown(answers);
+        fs.writeFile('output/README.md', test, (err) => { console.log(err)});
+    }).catch((error) => { console.log(error)});
