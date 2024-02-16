@@ -70,5 +70,5 @@ const questions = [
 prompt(questions)
     .then((answers) => {
         const test = generateMarkdown(answers);
-        fs.writeFile('output/README2.md', test, (err) => { console.log(err)});
+        fs.writeFile('output/README.md', test, (err) => { console.log(err)});
     }).catch((error) => { console.log(error)});
